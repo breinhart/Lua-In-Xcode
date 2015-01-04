@@ -40,7 +40,7 @@ cat >AdditionalLanguages.plist <<EOF
 		<array>
 			<dict>
 				<key>identifier</key>
-				<string>com.apple.xcode.lua-source</string>
+				<string>public.lua-script</string>
 			</dict>
 		</array>
 		<key>id</key>
@@ -80,3 +80,6 @@ cp "$SCRIPT_PATH/Lua.xclangspec" "$DVTFOUNDATION_PATH"
 # Remove any cached Xcode plugins
 #
 rm -f /private/var/folders/*/*/*/com.apple.DeveloperTools/*/Xcode/PlugInCache.xcplugincache
+
+# Register Lua script Uniform Type Identifier
+/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister "$SCRIPT_PATH/LuaUTIProvider.app"
