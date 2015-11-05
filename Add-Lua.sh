@@ -47,6 +47,8 @@ cat >AdditionalLanguages.plist <<EOF
 			<string>--</string>
 		</dict>
 	</array>
+	<key>documentationAbbreviation</key>
+	<string>lua</string>
 	<key>conformsTo</key>
 	<array>
 		<dict>
