@@ -32,35 +32,48 @@ cat >AdditionalLanguages.plist <<EOF
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Xcode.SourceCodeLanguage.Lua</key>
-	<dict>
-		<key>languageSpecification</key>
-		<string>xcode.lang.lua</string>
-		<key>fileDataType</key>
-		<array>
-			<dict>
-				<key>identifier</key>
-				<string>com.apple.xcode.lua-source</string>
-			</dict>
-		</array>
-		<key>id</key>
-		<string>Xcode.SourceCodeLanguage.Lua</string>
-		<key>point</key>
-		<string>Xcode.SourceCodeLanguage</string>
-		<key>languageName</key>
-		<string>Lua</string>
-		<key>version</key>
-		<string>1.0</string>
-		<key>conformsTo</key>
-		<array>
-			<dict>
-				<key>identifier</key>
-				<string>Xcode.SourceCodeLanguage.Generic</string>
-			</dict>
-		</array>
-		<key>name</key>
-		<string>Lua Language</string>
-	</dict>
+<key>Xcode.SourceCodeLanguage.Lua</key>
+<dict>
+	<key>commentSyntax</key>
+	<array>
+		<dict>
+			<key>prefix</key>
+			<string>--[[</string>
+			<key>suffix</key>
+			<string>]]</string>
+		</dict>
+		<dict>
+			<key>prefix</key>
+			<string>--</string>
+		</dict>
+	</array>
+	<key>conformsTo</key>
+	<array>
+		<dict>
+			<key>identifier</key>
+			<string>Xcode.SourceCodeLanguage.Generic</string>
+		</dict>
+	</array>
+	<key>fileDataType</key>
+	<array>
+		<dict>
+			<key>identifier</key>
+			<string>com.apple.xcode.lua-source</string>
+		</dict>
+	</array>
+	<key>id</key>
+	<string>Xcode.SourceCodeLanguage.Lua</string>
+	<key>languageName</key>
+	<string>Lua</string>
+	<key>languageSpecification</key>
+	<string>xcode.lang.lua</string>
+	<key>name</key>
+	<string>Lua Language</string>
+	<key>point</key>
+	<string>Xcode.SourceCodeLanguage</string>
+	<key>version</key>
+	<string>1.0</string>
+</dict>
 </dict>
 </plist>
 EOF
@@ -79,4 +92,4 @@ cp "$SCRIPT_PATH/Lua.xclangspec" "$DVTFOUNDATION_PATH"
 
 # Remove any cached Xcode plugins
 #
-rm -f /private/var/folders/*/*/*/com.apple.DeveloperTools/*/Xcode/PlugInCache.xcplugincache
+rm -f /private/var/folders/*/*/*/com.apple.DeveloperTools/*/Xcode/PlugInCache-Debug.xcplugincache
