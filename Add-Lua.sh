@@ -79,4 +79,4 @@ cp "$SCRIPT_PATH/Lua.xclangspec" "$DVTFOUNDATION_PATH"
 
 # Remove any cached Xcode plugins
 #
-rm -f /private/var/folders/*/*/*/com.apple.DeveloperTools/*/Xcode/PlugInCache.xcplugincache
+rm -f /private/var/folders/*/*/*/com.apple.DeveloperTools/*/Xcode/PlugInCache*.xcplugincache
