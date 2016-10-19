@@ -1,11 +1,25 @@
 #!/bin/bash
 
 #  Created by Alex Karahalios on 6/12/11
-#  Edited by Brian Reinhart on 08/02/2012 .
-#  Last edited 8/02/2012
+#  Edited by Brian Reinhart on 08/02/2012.
+#  Last edited by Mark Klara (MrHappyAsthma) on 08/29/2016.
 #
 # Updates Xcode and to support LUA language for editing
 #
+
+# Parse command line flags.
+for flag in "$@"
+do
+  case $flag in
+    --beta)
+    BETA=true
+    shift  # Shift past argument with no value.
+    ;;
+    *)
+           # Unknown argument.
+    ;;
+  esac
+done
 
 # Path were this script is located
 #
@@ -23,7 +37,12 @@ PLISTBUDDY=/usr/libexec/PlistBuddy
 # This framework is found withing the Xcode.app package and is used when Xcode is a monolithic
 # install (all contained in Xcode.app)
 #
-DVTFOUNDATION_PATH="/Applications/Xcode.app/Contents/SharedFrameworks/DVTFoundation.framework/Versions/A/Resources/"
+if [ "${BETA}" = true ]
+then
+  DVTFOUNDATION_PATH="/Applications/Xcode-beta.app/Contents/SharedFrameworks/DVTFoundation.framework/Versions/A/Resources/"
+else
+  DVTFOUNDATION_PATH="/Applications/Xcode.app/Contents/SharedFrameworks/DVTFoundation.framework/Versions/A/Resources/"
+fi
 
 # Create Plist file of additional languages to add to 'DVTFoundation.xcplugindata'
 #
@@ -79,4 +98,4 @@ cp "$SCRIPT_PATH/Lua.xclangspec" "$DVTFOUNDATION_PATH"
 
 # Remove any cached Xcode plugins
 #
-rm -f /private/var/folders/*/*/*/com.apple.DeveloperTools/*/Xcode/PlugInCache.xcplugincache
+rm -f /private/var/folders/*/*/*/com.apple.DeveloperTools/*/Xcode/PlugInCache*.xcplugincache
