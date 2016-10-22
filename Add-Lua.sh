@@ -83,6 +83,9 @@ cat >AdditionalLanguages.plist <<EOF
 </dict>
 </plist>
 EOF
+# Delete existing language if present
+#
+$PLISTBUDDY "$DVTFOUNDATION_PATH/DVTFoundation.xcplugindata" -c 'Delete plug-in:extensions:Xcode.SourceCodeLanguage.Lua'
 
 # Now merge in the additonal languages to DVTFoundation.xcplugindata
 #
